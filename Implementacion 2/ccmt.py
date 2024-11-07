@@ -206,7 +206,7 @@ class CascadedCrossModalTransformer(nn.Module):
     def forward(self, audio_path):
         # Transcribir el audio
         audio_transcription = self.transcribe_audio(audio_path)
-        
+        print("transcripcion")
         # Detectar el idioma de la transcripción
         if self.is_audio_in_french(audio_transcription):  
             text_fr = audio_transcription  
@@ -214,11 +214,11 @@ class CascadedCrossModalTransformer(nn.Module):
         else:
             text_en = audio_transcription  
             text_fr = self.translate_text(text_en, source_lang='en', target_lang='fr')
-
+        print("traduccion")
         # Procesar tokens de texto en francés y en inglés
         text_fr_tokens = self.process_text(text_fr, self.camembert)
         text_en_tokens = self.process_text(text_en, self.bert)
-
+        print("audio")
         # Cruzar los tokens de texto
         tokens_text_cross = self.cross_tr_language(text_fr_tokens, text_en_tokens)
         
