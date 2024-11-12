@@ -16,11 +16,11 @@ model = Wav2Vec2Model.from_pretrained(MODEL_TYPE).to(device)
 
 # Parámetros de procesamiento
 output_dim = 1024    # Dimensión deseada de salida
-num_tokens = 300     # Número de tokens que queremos tener
+num_tokens = 120     # Número de tokens que queremos tener
 
 # Directorios de entrada y salida
-audio_dir = "/media/chega/Nuevo vol/Implementacion 2/data/speech/train"
-out_dir = "/media/chega/Nuevo vol/Implementacion 2/test2/features_audio"
+audio_dir = "/media/chega/Nuevo vol/Implementacion 2/data/speech/test"
+out_dir = "/media/chega/Nuevo vol/Implementacion 2/test2/features_audio_test"
 os.makedirs(out_dir, exist_ok=True)
 
 # Proyección de características a la dimensión deseada
